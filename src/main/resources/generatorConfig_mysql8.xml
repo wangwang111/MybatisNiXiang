@@ -10,10 +10,17 @@
         MyBatis3Simple: 生成简单版的CRUD
         MyBatis3: 豪华版
      -->
-    <context id="myTable" targetRuntime="MyBatis3Simple">
+    <context id="myTable" targetRuntime="MyBatis3">
         <property name="javaFileEncoding" value="UTF-8"/>
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <!-- 取消注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/mybatis?characterEncoding=UTF-8&amp;autoReconnect=true&amp;serverTimezone=GMT%2B8&amp;useSSL=false"
                         userId="root"
@@ -26,7 +33,7 @@
             <property name="yp_projectName" value="prs"/>
         </javaTypeResolver>
         <!-- domain实体 -->
-        <javaModelGenerator targetPackage="com.wang.entity"
+        <javaModelGenerator targetPackage="com.wang.bean"
                             targetProject=".\src\main\java">
             <!--<property name="rootClass" value="com.yp.custtrack.domain.BaseDomain"/>-->
         </javaModelGenerator>
@@ -42,6 +49,9 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
+
+
         <table tableName="tbl_employee" domainObjectName="Employee"/>
     </context>
+
 </generatorConfiguration>
