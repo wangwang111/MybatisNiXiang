@@ -15,13 +15,10 @@ public class Test {
   public void doGenerate() throws Exception {
     List<String> warnings = new ArrayList<String>();
     ConfigurationParser cp = new ConfigurationParser(warnings);
-    //Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfig_for_oracle（wmsserv）.xml"));
-    //String xmlName="generatorConfig.xml";
     String xmlName = "generatorConfig_mysql8.xml";  //mysql 8
     Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream(xmlName));
 
     DefaultShellCallback shellCallback = new DefaultShellCallback(true);
-
     try {
       MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
       myBatisGenerator.generate(null);
@@ -30,4 +27,5 @@ public class Test {
       e.printStackTrace();
     }
   }
+
 }
