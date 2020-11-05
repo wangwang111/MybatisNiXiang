@@ -15,7 +15,7 @@ public class Test {
   public void doGenerate() throws Exception {
     List<String> warnings = new ArrayList<String>();
     ConfigurationParser cp = new ConfigurationParser(warnings);
-    String xmlName = "generatorConfig_mysql8.xml";  //mysql 8
+    String xmlName = "generatorConfig.xml";  //mysql 8
     Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream(xmlName));
 
     DefaultShellCallback shellCallback = new DefaultShellCallback(true);
